@@ -1,0 +1,1295 @@
+[
+  {
+    "id": "talent_001",
+    "name": "Minimalist Modern",
+    "description": "Clean, modern design with emphasis on whitespace and typography",
+    "created_at": "2024-03-19 00:00:00",
+    "updated_at": "2024-03-19 00:00:00",
+    "metadata": {
+      "aesthetic_characteristics": {
+        "style": "modern",
+        "mood": "calm",
+        "complexity": 0.2,
+        "minimalism": 0.9,
+        "boldness": 0.3,
+        "playfulness": 0.1,
+        "elegance": 0.8
+      },
+      "design_attributes": {
+        "whitespace_balance": 0.9,
+        "color_harmony": 0.8,
+        "visual_rhythm": 0.7,
+        "layout_density": 0.3,
+        "texture_use": 0.2,
+        "border_use": 0.3,
+        "shadow_use": 0.4
+      },
+      "color_palette": {
+        "primary": "#2D2D2D",
+        "secondary": "#FFFFFF",
+        "accent": "#0066FF",
+        "background": "#F5F5F5",
+        "text": "#333333"
+      },
+      "typography": {
+        "headingFont": "Inter",
+        "bodyFont": "Roboto",
+        "scale": 1.2,
+        "weight": "regular",
+        "letterSpacing": 0.5,
+        "lineHeight": 1.6
+      },
+      "design_system": {
+        "colors": {
+          "core": "oklch(50% .25 300)",
+          "tint_scale": 1.25,
+          "shade_scale": 1.25,
+          "chroma_shift": 1,
+          "chroma_neutral": 0.025,
+          "hue_shifts": {
+            "core_02": -30,
+            "core_03": -60,
+            "core_04": -90,
+            "core_05": -120,
+            "core_06": -150,
+            "core_07": -180,
+            "core_08": -210,
+            "core_09": -240,
+            "core_10": -270,
+            "core_11": -300,
+            "core_12": -330
+          },
+          "theme": {
+            "brand_primary": "var(--u-color-core-01-400)",
+            "bg_primary": "var(--u-color-core-00-900)",
+            "text_primary": "var(--u-color-core-00-100)",
+            "text_secondary": "var(--u-color-core-00-200)",
+            "primary_color": "var(--u-color-core-01-600)",
+            "primary_foreground": "var(--u-color-text-primary)",
+            "primary_hover": "var(--u-color-core-01-700)",
+            "secondary_color": "var(--u-color-core-00-700)",
+            "secondary_foreground": "var(--u-color-text-primary)",
+            "secondary_hover": "var(--u-color-core-00-800)",
+            "accent_color": "var(--u-color-core-00-600)",
+            "accent_foreground": "var(--u-color-text-primary)",
+            "input_color": "var(--u-color-core-00-600)",
+            "ring_color": "var(--u-color-core-00-600)"
+          }
+        },
+        "spacing": {
+          "padding_xl": "4rem",
+          "padding_lg": "3rem",
+          "padding_md": "2rem",
+          "padding_sm": "1rem",
+          "padding_xs": "0.5rem",
+          "container_max_width": "1512px",
+          "section_max_width": "1920px",
+          "responsive": {
+            "tablet": {
+              "padding_xl": "3rem",
+              "padding_lg": "2rem",
+              "padding_md": "1.5rem",
+              "padding_sm": "0.75rem",
+              "padding_xs": "0.375rem"
+            },
+            "mobile": {
+              "padding_xl": "2rem",
+              "padding_lg": "1.5rem",
+              "padding_md": "1rem",
+              "padding_sm": "0.5rem",
+              "padding_xs": "0.25rem"
+            },
+            "small_mobile": {
+              "padding_xl": "1rem",
+              "padding_lg": "0.75rem",
+              "padding_md": "0.5rem",
+              "padding_sm": "0.25rem",
+              "padding_xs": "0.125rem"
+            }
+          }
+        },
+        "typography": {
+          "font_family_heading": "'Inter Variable', sans-serif",
+          "font_family_body": "'Inter Variable', sans-serif",
+          "font_trim_top": 0.43,
+          "font_trim_bottom": 0.36,
+          "font_scale": 1.3,
+          "font_base": 16,
+          "font_weight_thin": 100,
+          "font_weight_normal": 400,
+          "font_weight_bold": 780,
+          "line_height_tight": 1.1,
+          "line_height_normal": 1.4,
+          "line_height_loose": 1.7,
+          "letter_spacing_tight": -0.03,
+          "letter_spacing_normal": -0.0004,
+          "font_sizes": {
+            "size_6": "calc(var(--u-font-base) * pow(var(--u-font-scale), 6))",
+            "size_5": "calc(var(--u-font-base) * pow(var(--u-font-scale), 5))",
+            "size_4": "calc(var(--u-font-base) * pow(var(--u-font-scale), 4))",
+            "size_3": "calc(var(--u-font-base) * pow(var(--u-font-scale), 3))",
+            "size_2": "calc(var(--u-font-base) * pow(var(--u-font-scale), 2))",
+            "size_1": "calc(var(--u-font-base) * var(--u-font-scale))",
+            "size_0": "var(--u-font-base)"
+          },
+          "styles": {
+            "display_lg": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-6)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "display_md": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-5)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "display_sm": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-4)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_lg": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-3)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_md": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-2)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_sm": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-1)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "body_lg": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "calc(var(--u-font-base) * 1.15)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            },
+            "body_md": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "var(--u-font-size-0)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            },
+            "body_sm": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "calc(var(--u-font-size-0) * 0.875)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            }
+          }
+        },
+        "borders": {
+          "weight_primary": "1px",
+          "weight_secondary": "2px",
+          "radius_scale": "0.5rem",
+          "radius_rd": "100vw",
+          "radius_xl": "calc(var(--u-border-radius-scale) * 2.25)",
+          "radius_lg": "calc(var(--u-border-radius-scale) * 1.75)",
+          "radius_md": "var(--u-border-radius-scale)",
+          "radius_sm": "calc(var(--u-border-radius-scale) * 0.75)",
+          "radius_xs": "calc(var(--u-border-radius-scale) * 0.425)"
+        },
+        "components": {
+          "button": {
+            "padding": "0.75rem 1.5rem",
+            "border_radius": "0.5rem",
+            "transition": "all 0.3s ease",
+            "font_weight": "500"
+          },
+          "card": {
+            "padding": "1rem",
+            "border_radius": "0.5rem",
+            "box_shadow": "0 0.1rem 0.3rem rgba(0, 0, 0, 0.1)"
+          },
+          "input": {
+            "padding": "0.75rem",
+            "border_radius": "0.5rem",
+            "border": "1px solid #ddd"
+          },
+          "navbar": {
+            "height": "4rem",
+            "padding": "0 var(--u-padding-xl)",
+            "background": "var(--u-color-bg-primary)"
+          },
+          "modal": {
+            "padding": "1.5rem",
+            "border_radius": "0.5rem",
+            "background": "var(--u-color-core-00-100)",
+            "box_shadow": "0 0.5rem 1rem rgba(0, 0, 0, 0.15)"
+          },
+          "table": {
+            "border": "1px solid var(--u-color-core-00-300)",
+            "cell_padding": "0.75rem 1rem",
+            "header_background": "var(--u-color-core-00-200)"
+          }
+        },
+        "layout": {
+          "grid_columns": 12,
+          "breakpoints": {
+            "sm": "480px",
+            "md": "768px",
+            "lg": "1024px",
+            "xl": "1280px",
+            "2xl": "1536px"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "talent_002",
+    "name": "Bold Corporate",
+    "description": "Professional and impactful corporate design system",
+    "created_at": "2024-03-19 00:00:00",
+    "updated_at": "2024-03-19 00:00:00",
+    "metadata": {
+      "aesthetic_characteristics": {
+        "style": "corporate",
+        "mood": "professional",
+        "complexity": 0.6,
+        "minimalism": 0.5,
+        "boldness": 0.8,
+        "playfulness": 0.2,
+        "elegance": 0.7
+      },
+      "design_attributes": {
+        "whitespace_balance": 0.7,
+        "color_harmony": 0.8,
+        "visual_rhythm": 0.6,
+        "layout_density": 0.6,
+        "texture_use": 0.4,
+        "border_use": 0.5,
+        "shadow_use": 0.6
+      },
+      "color_palette": {
+        "primary": "#1A237E",
+        "secondary": "#FFFFFF",
+        "accent": "#FF4081",
+        "background": "#FAFAFA",
+        "text": "#212121"
+      },
+      "typography": {
+        "headingFont": "Montserrat",
+        "bodyFont": "Open Sans",
+        "scale": 1.333,
+        "weight": "medium",
+        "letterSpacing": 0.3,
+        "lineHeight": 1.5
+      },
+      "design_system": {
+        "colors": {
+          "core": "oklch(40% .3 265)",
+          "tint_scale": 1.3,
+          "shade_scale": 1.3,
+          "chroma_shift": 1.2,
+          "chroma_neutral": 0.02,
+          "hue_shifts": {
+            "core_02": -30,
+            "core_03": -60,
+            "core_04": -90,
+            "core_05": -120,
+            "core_06": -150,
+            "core_07": -180,
+            "core_08": -210,
+            "core_09": -240,
+            "core_10": -270,
+            "core_11": -300,
+            "core_12": -330
+          },
+          "theme": {
+            "brand_primary": "var(--u-color-core-01-500)",
+            "bg_primary": "var(--u-color-core-00-100)",
+            "text_primary": "var(--u-color-core-00-900)",
+            "text_secondary": "var(--u-color-core-00-700)",
+            "primary_color": "var(--u-color-core-01-600)",
+            "primary_foreground": "var(--u-color-text-primary)",
+            "primary_hover": "var(--u-color-core-01-700)",
+            "secondary_color": "var(--u-color-core-00-700)",
+            "secondary_foreground": "var(--u-color-text-primary)",
+            "secondary_hover": "var(--u-color-core-00-800)",
+            "accent_color": "var(--u-color-core-00-600)",
+            "accent_foreground": "var(--u-color-text-primary)",
+            "input_color": "var(--u-color-core-00-600)",
+            "ring_color": "var(--u-color-core-00-600)"
+          }
+        },
+        "spacing": {
+          "padding_xl": "4.5rem",
+          "padding_lg": "3.5rem",
+          "padding_md": "2.5rem",
+          "padding_sm": "1.25rem",
+          "padding_xs": "0.625rem",
+          "container_max_width": "1512px",
+          "section_max_width": "1920px",
+          "responsive": {
+            "tablet": {
+              "padding_xl": "3.5rem",
+              "padding_lg": "2.5rem",
+              "padding_md": "1.75rem",
+              "padding_sm": "0.9rem",
+              "padding_xs": "0.45rem"
+            },
+            "mobile": {
+              "padding_xl": "2.5rem",
+              "padding_lg": "1.75rem",
+              "padding_md": "1.25rem",
+              "padding_sm": "0.65rem",
+              "padding_xs": "0.3rem"
+            },
+            "small_mobile": {
+              "padding_xl": "1.5rem",
+              "padding_lg": "1rem",
+              "padding_md": "0.75rem",
+              "padding_sm": "0.4rem",
+              "padding_xs": "0.2rem"
+            }
+          }
+        },
+        "typography": {
+          "font_family_heading": "'Montserrat Variable', sans-serif",
+          "font_family_body": "'Open Sans Variable', sans-serif",
+          "font_trim_top": 0.4,
+          "font_trim_bottom": 0.35,
+          "font_scale": 1.333,
+          "font_base": 16,
+          "font_weight_thin": 100,
+          "font_weight_normal": 400,
+          "font_weight_bold": 700,
+          "line_height_tight": 1.2,
+          "line_height_normal": 1.5,
+          "line_height_loose": 1.8,
+          "letter_spacing_tight": -0.02,
+          "letter_spacing_normal": 0,
+          "font_sizes": {
+            "size_6": "calc(var(--u-font-base) * pow(var(--u-font-scale), 6))",
+            "size_5": "calc(var(--u-font-base) * pow(var(--u-font-scale), 5))",
+            "size_4": "calc(var(--u-font-base) * pow(var(--u-font-scale), 4))",
+            "size_3": "calc(var(--u-font-base) * pow(var(--u-font-scale), 3))",
+            "size_2": "calc(var(--u-font-base) * pow(var(--u-font-scale), 2))",
+            "size_1": "calc(var(--u-font-base) * var(--u-font-scale))",
+            "size_0": "var(--u-font-base)"
+          },
+          "styles": {
+            "display_lg": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-6)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "display_md": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-5)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "display_sm": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-4)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_lg": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-3)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_md": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-2)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_sm": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-1)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "body_lg": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "calc(var(--u-font-base) * 1.15)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            },
+            "body_md": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "var(--u-font-size-0)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            },
+            "body_sm": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "calc(var(--u-font-size-0) * 0.875)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            }
+          }
+        },
+        "borders": {
+          "weight_primary": "1px",
+          "weight_secondary": "3px",
+          "radius_scale": "0.4rem",
+          "radius_rd": "100vw",
+          "radius_xl": "calc(var(--u-border-radius-scale) * 2)",
+          "radius_lg": "calc(var(--u-border-radius-scale) * 1.5)",
+          "radius_md": "var(--u-border-radius-scale)",
+          "radius_sm": "calc(var(--u-border-radius-scale) * 0.75)",
+          "radius_xs": "calc(var(--u-border-radius-scale) * 0.5)"
+        },
+        "components": {
+          "button": {
+            "padding": "0.75rem 2rem",
+            "border_radius": "0.4rem",
+            "transition": "all 0.25s ease",
+            "font_weight": "600"
+          },
+          "card": {
+            "padding": "1.5rem",
+            "border_radius": "0.4rem",
+            "box_shadow": "0 0.15rem 0.5rem rgba(0, 0, 0, 0.15)"
+          },
+          "input": {
+            "padding": "0.875rem",
+            "border_radius": "0.4rem",
+            "border": "1px solid #bdbdbd"
+          },
+          "navbar": {
+            "height": "4.5rem",
+            "padding": "0 var(--u-padding-xl)",
+            "background": "var(--u-color-bg-primary)"
+          },
+          "modal": {
+            "padding": "2rem",
+            "border_radius": "0.4rem",
+            "background": "var(--u-color-core-00-100)",
+            "box_shadow": "0 0.5rem 1.5rem rgba(0, 0, 0, 0.2)"
+          },
+          "table": {
+            "border": "1px solid var(--u-color-core-00-300)",
+            "cell_padding": "1rem 1.25rem",
+            "header_background": "var(--u-color-core-00-200)"
+          }
+        },
+        "layout": {
+          "grid_columns": 12,
+          "breakpoints": {
+            "sm": "480px",
+            "md": "768px",
+            "lg": "1024px",
+            "xl": "1280px",
+            "2xl": "1536px"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "talent_003",
+    "name": "Playful Creative",
+    "description": "Vibrant and energetic design for creative projects",
+    "created_at": "2024-03-19 00:00:00",
+    "updated_at": "2024-03-19 00:00:00",
+    "metadata": {
+      "aesthetic_characteristics": {
+        "style": "playful",
+        "mood": "energetic",
+        "complexity": 0.7,
+        "minimalism": 0.3,
+        "boldness": 0.8,
+        "playfulness": 0.9,
+        "elegance": 0.4
+      },
+      "design_attributes": {
+        "whitespace_balance": 0.5,
+        "color_harmony": 0.9,
+        "visual_rhythm": 0.8,
+        "layout_density": 0.7,
+        "texture_use": 0.8,
+        "border_use": 0.6,
+        "shadow_use": 0.7
+      },
+      "color_palette": {
+        "primary": "#FF6B6B",
+        "secondary": "#4ECDC4",
+        "accent": "#FFE66D",
+        "background": "#FFFFFF",
+        "text": "#2C3E50"
+      },
+      "typography": {
+        "headingFont": "Poppins",
+        "bodyFont": "Lato",
+        "scale": 1.414,
+        "weight": "bold",
+        "letterSpacing": 0.2,
+        "lineHeight": 1.7
+      },
+      "design_system": {
+        "colors": {
+          "core": "oklch(70% .35 20)",
+          "tint_scale": 1.2,
+          "shade_scale": 1.2,
+          "chroma_shift": 1.3,
+          "chroma_neutral": 0.03,
+          "hue_shifts": {
+            "core_02": -30,
+            "core_03": -60,
+            "core_04": -90,
+            "core_05": -120,
+            "core_06": -150,
+            "core_07": -180,
+            "core_08": -210,
+            "core_09": -240,
+            "core_10": -270,
+            "core_11": -300,
+            "core_12": -330
+          },
+          "theme": {
+            "brand_primary": "var(--u-color-core-01-500)",
+            "bg_primary": "var(--u-color-core-00-100)",
+            "text_primary": "var(--u-color-core-00-800)",
+            "text_secondary": "var(--u-color-core-00-600)",
+            "primary_color": "var(--u-color-core-01-600)",
+            "primary_foreground": "var(--u-color-text-primary)",
+            "primary_hover": "var(--u-color-core-01-700)",
+            "secondary_color": "var(--u-color-core-00-700)",
+            "secondary_foreground": "var(--u-color-text-primary)",
+            "secondary_hover": "var(--u-color-core-00-800)",
+            "accent_color": "var(--u-color-core-00-600)",
+            "accent_foreground": "var(--u-color-text-primary)",
+            "input_color": "var(--u-color-core-00-600)",
+            "ring_color": "var(--u-color-core-00-600)"
+          }
+        },
+        "spacing": {
+          "padding_xl": "3.5rem",
+          "padding_lg": "2.75rem",
+          "padding_md": "2rem",
+          "padding_sm": "1.25rem",
+          "padding_xs": "0.75rem",
+          "container_max_width": "1512px",
+          "section_max_width": "1920px",
+          "responsive": {
+            "tablet": {
+              "padding_xl": "2.75rem",
+              "padding_lg": "2.25rem",
+              "padding_md": "1.5rem",
+              "padding_sm": "0.95rem",
+              "padding_xs": "0.55rem"
+            },
+            "mobile": {
+              "padding_xl": "2rem",
+              "padding_lg": "1.5rem",
+              "padding_md": "1rem",
+              "padding_sm": "0.6rem",
+              "padding_xs": "0.35rem"
+            },
+            "small_mobile": {
+              "padding_xl": "1.25rem",
+              "padding_lg": "0.9rem",
+              "padding_md": "0.65rem",
+              "padding_sm": "0.4rem",
+              "padding_xs": "0.2rem"
+            }
+          }
+        },
+        "typography": {
+          "font_family_heading": "'Poppins Variable', sans-serif",
+          "font_family_body": "'Lato', sans-serif",
+          "font_trim_top": 0.45,
+          "font_trim_bottom": 0.38,
+          "font_scale": 1.414,
+          "font_base": 16,
+          "font_weight_thin": 300,
+          "font_weight_normal": 400,
+          "font_weight_bold": 800,
+          "line_height_tight": 1.3,
+          "line_height_normal": 1.6,
+          "line_height_loose": 1.9,
+          "letter_spacing_tight": -0.01,
+          "letter_spacing_normal": 0.01,
+          "font_sizes": {
+            "size_6": "calc(var(--u-font-base) * pow(var(--u-font-scale), 6))",
+            "size_5": "calc(var(--u-font-base) * pow(var(--u-font-scale), 5))",
+            "size_4": "calc(var(--u-font-base) * pow(var(--u-font-scale), 4))",
+            "size_3": "calc(var(--u-font-base) * pow(var(--u-font-scale), 3))",
+            "size_2": "calc(var(--u-font-base) * pow(var(--u-font-scale), 2))",
+            "size_1": "calc(var(--u-font-base) * var(--u-font-scale))",
+            "size_0": "var(--u-font-base)"
+          },
+          "styles": {
+            "display_lg": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-6)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "display_md": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-5)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "display_sm": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-4)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_lg": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-3)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_md": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-2)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_sm": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-1)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "body_lg": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "calc(var(--u-font-base) * 1.15)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            },
+            "body_md": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "var(--u-font-size-0)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            },
+            "body_sm": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "calc(var(--u-font-size-0) * 0.875)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            }
+          }
+        },
+        "borders": {
+          "weight_primary": "2px",
+          "weight_secondary": "4px",
+          "radius_scale": "0.75rem",
+          "radius_rd": "100vw",
+          "radius_xl": "calc(var(--u-border-radius-scale) * 2.5)",
+          "radius_lg": "calc(var(--u-border-radius-scale) * 2)",
+          "radius_md": "var(--u-border-radius-scale)",
+          "radius_sm": "calc(var(--u-border-radius-scale) * 0.8)",
+          "radius_xs": "calc(var(--u-border-radius-scale) * 0.6)"
+        },
+        "components": {
+          "button": {
+            "padding": "0.875rem 2rem",
+            "border_radius": "1.5rem",
+            "transition": "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+            "font_weight": "700"
+          },
+          "card": {
+            "padding": "1.5rem",
+            "border_radius": "1rem",
+            "box_shadow": "0 0.2rem 0.6rem rgba(0, 0, 0, 0.12)"
+          },
+          "input": {
+            "padding": "1rem",
+            "border_radius": "1rem",
+            "border": "2px solid #e0e0e0"
+          },
+          "navbar": {
+            "height": "4rem",
+            "padding": "0 var(--u-padding-xl)",
+            "background": "var(--u-color-bg-primary)",
+            "border_bottom": "2px solid var(--u-color-core-01-400)"
+          },
+          "modal": {
+            "padding": "1.75rem",
+            "border_radius": "1rem",
+            "background": "var(--u-color-core-00-100)",
+            "box_shadow": "0 1rem 2rem rgba(0, 0, 0, 0.15)"
+          },
+          "table": {
+            "border": "2px solid var(--u-color-core-00-300)",
+            "cell_padding": "0.875rem 1.25rem",
+            "header_background": "var(--u-color-core-01-100)"
+          }
+        },
+        "layout": {
+          "grid_columns": 12,
+          "breakpoints": {
+            "sm": "480px",
+            "md": "768px",
+            "lg": "1024px",
+            "xl": "1280px",
+            "2xl": "1536px"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "talent_004",
+    "name": "Elegant Luxury",
+    "description": "Sophisticated and luxurious design aesthetic",
+    "created_at": "2024-03-19 00:00:00",
+    "updated_at": "2024-03-19 00:00:00",
+    "metadata": {
+      "aesthetic_characteristics": {
+        "style": "luxury",
+        "mood": "elegant",
+        "complexity": 0.6,
+        "minimalism": 0.7,
+        "boldness": 0.5,
+        "playfulness": 0.2,
+        "elegance": 0.9
+      },
+      "design_attributes": {
+        "whitespace_balance": 0.8,
+        "color_harmony": 0.9,
+        "visual_rhythm": 0.7,
+        "layout_density": 0.4,
+        "texture_use": 0.6,
+        "border_use": 0.4,
+        "shadow_use": 0.5
+      },
+      "color_palette": {
+        "primary": "#2C3E50",
+        "secondary": "#E5E5E5",
+        "accent": "#C0B283",
+        "background": "#F4F4F4",
+        "text": "#2C3E50"
+      },
+      "typography": {
+        "headingFont": "Playfair Display",
+        "bodyFont": "Cormorant Garamond",
+        "scale": 1.5,
+        "weight": "regular",
+        "letterSpacing": 0.4,
+        "lineHeight": 1.8
+      },
+      "design_system": {
+        "colors": {
+          "core": "oklch(45% .05 260)",
+          "tint_scale": 1.35,
+          "shade_scale": 1.35,
+          "chroma_shift": 0.8,
+          "chroma_neutral": 0.015,
+          "hue_shifts": {
+            "core_02": -30,
+            "core_03": -60,
+            "core_04": -90,
+            "core_05": -120,
+            "core_06": -150,
+            "core_07": -180,
+            "core_08": -210,
+            "core_09": -240,
+            "core_10": -270,
+            "core_11": -300,
+            "core_12": -330
+          },
+          "theme": {
+            "brand_primary": "var(--u-color-core-01-500)",
+            "bg_primary": "var(--u-color-core-00-100)",
+            "text_primary": "var(--u-color-core-00-900)",
+            "text_secondary": "var(--u-color-core-00-800)",
+            "primary_color": "var(--u-color-core-01-600)",
+            "primary_foreground": "var(--u-color-text-primary)",
+            "primary_hover": "var(--u-color-core-01-700)",
+            "secondary_color": "var(--u-color-core-00-700)",
+            "secondary_foreground": "var(--u-color-text-primary)",
+            "secondary_hover": "var(--u-color-core-00-800)",
+            "accent_color": "var(--u-color-core-00-600)",
+            "accent_foreground": "var(--u-color-text-primary)",
+            "input_color": "var(--u-color-core-00-600)",
+            "ring_color": "var(--u-color-core-00-600)"
+          }
+        },
+        "spacing": {
+          "padding_xl": "5rem",
+          "padding_lg": "3.75rem",
+          "padding_md": "2.5rem",
+          "padding_sm": "1.25rem",
+          "padding_xs": "0.625rem",
+          "container_max_width": "1512px",
+          "section_max_width": "1920px",
+          "responsive": {
+            "tablet": {
+              "padding_xl": "4rem",
+              "padding_lg": "3rem",
+              "padding_md": "2rem",
+              "padding_sm": "1rem",
+              "padding_xs": "0.5rem"
+            },
+            "mobile": {
+              "padding_xl": "3rem",
+              "padding_lg": "2.25rem",
+              "padding_md": "1.5rem",
+              "padding_sm": "0.75rem",
+              "padding_xs": "0.375rem"
+            },
+            "small_mobile": {
+              "padding_xl": "2rem",
+              "padding_lg": "1.5rem",
+              "padding_md": "1rem",
+              "padding_sm": "0.5rem",
+              "padding_xs": "0.25rem"
+            }
+          }
+        },
+        "typography": {
+          "font_family_heading": "'Playfair Display Variable', serif",
+          "font_family_body": "'Cormorant Garamond', serif",
+          "font_trim_top": 0.5,
+          "font_trim_bottom": 0.45,
+          "font_scale": 1.5,
+          "font_base": 18,
+          "font_weight_thin": 300,
+          "font_weight_normal": 400,
+          "font_weight_bold": 700,
+          "line_height_tight": 1.3,
+          "line_height_normal": 1.6,
+          "line_height_loose": 1.9,
+          "letter_spacing_tight": 0.05,
+          "letter_spacing_normal": 0.1,
+          "font_sizes": {
+            "size_6": "calc(var(--u-font-base) * pow(var(--u-font-scale), 6))",
+            "size_5": "calc(var(--u-font-base) * pow(var(--u-font-scale), 5))",
+            "size_4": "calc(var(--u-font-base) * pow(var(--u-font-scale), 4))",
+            "size_3": "calc(var(--u-font-base) * pow(var(--u-font-scale), 3))",
+            "size_2": "calc(var(--u-font-base) * pow(var(--u-font-scale), 2))",
+            "size_1": "calc(var(--u-font-base) * var(--u-font-scale))",
+            "size_0": "var(--u-font-base)"
+          },
+          "styles": {
+            "display_lg": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-6)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "display_md": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-5)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "display_sm": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-4)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_lg": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-3)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_md": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-2)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_sm": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-1)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "body_lg": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "calc(var(--u-font-base) * 1.15)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            },
+            "body_md": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "var(--u-font-size-0)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            },
+            "body_sm": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "calc(var(--u-font-size-0) * 0.875)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            }
+          }
+        },
+        "borders": {
+          "weight_primary": "1px",
+          "weight_secondary": "2px",
+          "radius_scale": "0.3rem",
+          "radius_rd": "100vw",
+          "radius_xl": "calc(var(--u-border-radius-scale) * 2)",
+          "radius_lg": "calc(var(--u-border-radius-scale) * 1.5)",
+          "radius_md": "var(--u-border-radius-scale)",
+          "radius_sm": "calc(var(--u-border-radius-scale) * 0.75)",
+          "radius_xs": "calc(var(--u-border-radius-scale) * 0.5)"
+        },
+        "components": {
+          "button": {
+            "padding": "0.875rem 2.25rem",
+            "border_radius": "0.25rem",
+            "transition": "all 0.4s ease",
+            "font_weight": "500",
+            "letter_spacing": "0.1em"
+          },
+          "card": {
+            "padding": "2rem",
+            "border_radius": "0.3rem",
+            "box_shadow": "0 0.1rem 0.3rem rgba(0, 0, 0, 0.08)"
+          },
+          "input": {
+            "padding": "1rem",
+            "border_radius": "0.25rem",
+            "border": "1px solid #d8d8d8"
+          },
+          "navbar": {
+            "height": "5rem",
+            "padding": "0 var(--u-padding-xl)",
+            "background": "var(--u-color-bg-primary)"
+          },
+          "modal": {
+            "padding": "2.5rem",
+            "border_radius": "0.3rem",
+            "background": "var(--u-color-core-00-100)",
+            "box_shadow": "0 0.5rem 1.5rem rgba(0, 0, 0, 0.1)"
+          },
+          "table": {
+            "border": "1px solid var(--u-color-core-00-300)",
+            "cell_padding": "1.25rem 1.5rem",
+            "header_background": "var(--u-color-core-00-200)"
+          }
+        },
+        "layout": {
+          "grid_columns": 12,
+          "breakpoints": {
+            "sm": "480px",
+            "md": "768px",
+            "lg": "1024px",
+            "xl": "1280px",
+            "2xl": "1536px"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "talent_005",
+    "name": "Tech Futuristic",
+    "description": "Modern tech-inspired design system",
+    "created_at": "2024-03-19 00:00:00",
+    "updated_at": "2024-03-19 00:00:00",
+    "metadata": {
+      "aesthetic_characteristics": {
+        "style": "futuristic",
+        "mood": "innovative",
+        "complexity": 0.8,
+        "minimalism": 0.6,
+        "boldness": 0.7,
+        "playfulness": 0.4,
+        "elegance": 0.6
+      },
+      "design_attributes": {
+        "whitespace_balance": 0.6,
+        "color_harmony": 0.8,
+        "visual_rhythm": 0.9,
+        "layout_density": 0.5,
+        "texture_use": 0.7,
+        "border_use": 0.8,
+        "shadow_use": 0.8
+      },
+      "color_palette": {
+        "primary": "#00BCD4",
+        "secondary": "#212121",
+        "accent": "#64FFDA",
+        "background": "#121212",
+        "text": "#FFFFFF"
+      },
+      "typography": {
+        "headingFont": "Space Grotesk",
+        "bodyFont": "IBM Plex Sans",
+        "scale": 1.25,
+        "weight": "medium",
+        "letterSpacing": 0.6,
+        "lineHeight": 1.6
+      },
+      "design_system": {
+        "colors": {
+          "core": "oklch(60% .3 190)",
+          "tint_scale": 1.25,
+          "shade_scale": 1.25,
+          "chroma_shift": 1.2,
+          "chroma_neutral": 0.01,
+          "hue_shifts": {
+            "core_02": -30,
+            "core_03": -60,
+            "core_04": -90,
+            "core_05": -120,
+            "core_06": -150,
+            "core_07": -180,
+            "core_08": -210,
+            "core_09": -240,
+            "core_10": -270,
+            "core_11": -300,
+            "core_12": -330
+          },
+          "theme": {
+            "brand_primary": "var(--u-color-core-01-500)",
+            "bg_primary": "var(--u-color-core-00-900)",
+            "text_primary": "var(--u-color-core-00-100)",
+            "text_secondary": "var(--u-color-core-00-300)",
+            "primary_color": "var(--u-color-core-01-600)",
+            "primary_foreground": "var(--u-color-text-primary)",
+            "primary_hover": "var(--u-color-core-01-700)",
+            "secondary_color": "var(--u-color-core-00-700)",
+            "secondary_foreground": "var(--u-color-text-primary)",
+            "secondary_hover": "var(--u-color-core-00-800)",
+            "accent_color": "var(--u-color-core-00-600)",
+            "accent_foreground": "var(--u-color-text-primary)",
+            "input_color": "var(--u-color-core-00-600)",
+            "ring_color": "var(--u-color-core-00-600)"
+          }
+        },
+        "spacing": {
+          "padding_xl": "4rem",
+          "padding_lg": "3rem",
+          "padding_md": "2rem",
+          "padding_sm": "1rem",
+          "padding_xs": "0.5rem",
+          "container_max_width": "1512px",
+          "section_max_width": "1920px",
+          "responsive": {
+            "tablet": {
+              "padding_xl": "3rem",
+              "padding_lg": "2.25rem",
+              "padding_md": "1.5rem",
+              "padding_sm": "0.75rem",
+              "padding_xs": "0.375rem"
+            },
+            "mobile": {
+              "padding_xl": "2rem",
+              "padding_lg": "1.5rem",
+              "padding_md": "1rem",
+              "padding_sm": "0.5rem",
+              "padding_xs": "0.25rem"
+            },
+            "small_mobile": {
+              "padding_xl": "1.25rem",
+              "padding_lg": "0.875rem",
+              "padding_md": "0.625rem",
+              "padding_sm": "0.375rem",
+              "padding_xs": "0.1875rem"
+            }
+          }
+        },
+        "typography": {
+          "font_family_heading": "'Space Grotesk', sans-serif",
+          "font_family_body": "'IBM Plex Sans', sans-serif",
+          "font_trim_top": 0.42,
+          "font_trim_bottom": 0.34,
+          "font_scale": 1.25,
+          "font_base": 16,
+          "font_weight_thin": 100,
+          "font_weight_normal": 400,
+          "font_weight_bold": 600,
+          "line_height_tight": 1.2,
+          "line_height_normal": 1.5,
+          "line_height_loose": 1.8,
+          "letter_spacing_tight": 0.02,
+          "letter_spacing_normal": 0.05,
+          "font_sizes": {
+            "size_6": "calc(var(--u-font-base) * pow(var(--u-font-scale), 6))",
+            "size_5": "calc(var(--u-font-base) * pow(var(--u-font-scale), 5))",
+            "size_4": "calc(var(--u-font-base) * pow(var(--u-font-scale), 4))",
+            "size_3": "calc(var(--u-font-base) * pow(var(--u-font-scale), 3))",
+            "size_2": "calc(var(--u-font-base) * pow(var(--u-font-scale), 2))",
+            "size_1": "calc(var(--u-font-base) * var(--u-font-scale))",
+            "size_0": "var(--u-font-base)"
+          },
+          "styles": {
+            "display_lg": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-6)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "display_md": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-5)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "display_sm": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-4)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-tight)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_lg": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-3)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_md": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-2)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "heading_sm": {
+              "font_family": "var(--u-font-family-heading)",
+              "font_size": "var(--u-font-size-1)",
+              "font_weight": "var(--u-font-weight-heading)",
+              "line_height": "var(--u-font-line-height-normal)",
+              "letter_spacing": "var(--u-font-letter-spacing-tight)"
+            },
+            "body_lg": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "calc(var(--u-font-base) * 1.15)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            },
+            "body_md": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "var(--u-font-size-0)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            },
+            "body_sm": {
+              "font_family": "var(--u-font-family-body)",
+              "font_size": "calc(var(--u-font-size-0) * 0.875)",
+              "font_weight": "var(--u-font-weight-body)",
+              "line_height": "var(--u-font-line-height-loose)",
+              "letter_spacing": "var(--u-font-letter-spacing-normal)"
+            }
+          }
+        },
+        "borders": {
+          "weight_primary": "1px",
+          "weight_secondary": "2px",
+          "radius_scale": "0.25rem",
+          "radius_rd": "100vw",
+          "radius_xl": "calc(var(--u-border-radius-scale) * 2)",
+          "radius_lg": "calc(var(--u-border-radius-scale) * 1.5)",
+          "radius_md": "var(--u-border-radius-scale)",
+          "radius_sm": "calc(var(--u-border-radius-scale) * 0.75)",
+          "radius_xs": "calc(var(--u-border-radius-scale) * 0.5)"
+        },
+        "components": {
+          "button": {
+            "padding": "0.75rem 1.75rem",
+            "border_radius": "0.25rem",
+            "transition": "all 0.2s ease",
+            "font_weight": "500",
+            "text_transform": "uppercase",
+            "letter_spacing": "0.05em"
+          },
+          "card": {
+            "padding": "1.5rem",
+            "border_radius": "0.25rem",
+            "box_shadow": "0 0.3rem 1rem rgba(0, 0, 0, 0.2)",
+            "border": "1px solid rgba(255, 255, 255, 0.05)"
+          },
+          "input": {
+            "padding": "0.875rem",
+            "border_radius": "0.25rem",
+            "border": "1px solid rgba(255, 255, 255, 0.1)",
+            "background": "rgba(255, 255, 255, 0.05)"
+          },
+          "navbar": {
+            "height": "4rem",
+            "padding": "0 var(--u-padding-xl)",
+            "background": "var(--u-color-bg-primary)",
+            "border_bottom": "1px solid rgba(255, 255, 255, 0.05)"
+          },
+          "modal": {
+            "padding": "1.75rem",
+            "border_radius": "0.25rem",
+            "background": "var(--u-color-core-00-900)",
+            "box_shadow": "0 1rem 3rem rgba(0, 0, 0, 0.25)",
+            "border": "1px solid rgba(255, 255, 255, 0.05)"
+          },
+          "table": {
+            "border": "1px solid rgba(255, 255, 255, 0.1)",
+            "cell_padding": "0.75rem 1.25rem",
+            "header_background": "rgba(255, 255, 255, 0.05)"
+          }
+        },
+        "layout": {
+          "grid_columns": 12,
+          "breakpoints": {
+            "sm": "480px",
+            "md": "768px",
+            "lg": "1024px",
+            "xl": "1280px",
+            "2xl": "1536px"
+          }
+        }
+      }
+    }
+  }
+] 

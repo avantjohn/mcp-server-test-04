@@ -1,0 +1,30 @@
+:root {
+    --u-color-brand-primary: var(--u-color-core-01-400);
+    --u-color-bg-primary: var(--u-color-core-00-900);
+    --u-color-text-primary: var(--u-color-core-00-100);
+    --u-color-text-secondary: var(--u-color-core-00-200);
+
+    --primary-color: var(--u-color-core-01-600);
+    --primary-foreground: var(--u-color-text-primary);
+    --primary-hover: var(--u-color-core-01-700);
+    --secondary-color: var(--u-color-core-00-700);
+    --secondary-foreground: var(--u-color-text-primary);
+    --secondary-hover: var(--u-color-core-00-800);
+    --accent-color: var(--u-color-core-00-600);
+    --accent-foreground: var(--u-color-text-primary);
+    --input-color: var(--u-color-core-00-600);
+    --ring-color: var(--u-color-core-00-600);
+}
+
+body {
+    background: var(--u-color-bg-primary);
+    color: var(--u-color-text-primary);
+}
+
+a {
+    color: var(--u-color-brand-primary);
+}
+
+p {
+    color: var(--u-color-text-secondary);
+}

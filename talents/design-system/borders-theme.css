@@ -1,0 +1,20 @@
+/* BORDER STYLES */
+
+/* Border Thickness */
+:root {
+    --u-border-weight-primary: 1px;
+    --u-border-weight-secondary: 2px;
+}
+
+/* Border Radius */
+:root {
+    --u-border-radius-scale: 0.5rem;
+
+    --u-border-radius-rd: 100vw;
+    --u-border-radius-xl: calc(var(--u-border-radius-scale) * 2.25);
+    --u-border-radius-lg: calc(var(--u-border-radius-scale) * 1.75); 
+    --u-border-radius-md: var(--u-border-radius-scale);
+    --u-border-radius-sm: calc(var(--u-border-radius-scale) * 0.75);
+    --u-border-radius-xs: calc(var(--u-border-radius-scale) * 0.425);
+
+}

@@ -1,7 +1,7 @@
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { createMcpServer } from './mcp-server.js';
 import dotenv from 'dotenv';
-import { closePool } from './db/index.js';
+import { closePool, initializeDb } from './db/index.js';
 
 // Load environment variables
 dotenv.config();
@@ -11,6 +11,9 @@ dotenv.config();
  */
 async function startServer() {
   try {
+    // Initialize database
+    await initializeDb();
+    
     // Create MCP server
     const server = await createMcpServer();
     

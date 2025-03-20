@@ -18,8 +18,10 @@ const sqlFilePath = path.join(__dirname, 'setup-db.sql');
 
 // Create a client to connect to the database
 const client = new pg.Client({
-  // Connection parameters are read from environment variables:
-  // PGHOST, PGUSER, PGDATABASE, PGPASSWORD, PGPORT
+  // Connection parameters from environment variables
+  ssl: process.env.PGSSL === 'require' ? {
+    rejectUnauthorized: false
+  } : undefined
 });
 
 async function setupDatabase() {

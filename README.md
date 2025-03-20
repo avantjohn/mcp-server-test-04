@@ -120,21 +120,22 @@ Where the `metadata` JSON field has the following structure:
 
 ### Running the Server
 
-#### Using stdio (for CLI tools)
+Two server modes are available:
 
-```
+1. **Standard stdio mode** (for command-line tools and direct integration):
+```bash
 npm start
 ```
 
-This starts the server listening on stdin and stdout, ready to communicate with any MCP client.
-
-#### Using HTTP/SSE (for web applications)
-
-```
-node dist/http-server.js
+2. **HTTP server with SSE support** (for remote access and web integration):
+```bash
+npm run start:http
 ```
 
-This starts an HTTP server with Server-Sent Events (SSE) support, allowing web applications to connect to the MCP server.
+The HTTP server provides:
+- An SSE endpoint at `/sse` for receiving real-time updates
+- A POST endpoint at `/messages` for sending commands
+- A health check endpoint at `/health`
 
 ## API Reference
 

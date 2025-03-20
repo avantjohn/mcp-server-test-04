@@ -1,0 +1,188 @@
+:root {
+
+    /* ADD YOUR COLOR HERE */
+    --u-color-core: oklch(50% .25 300);
+
+    /* Define Core Color */
+    --u-color-core-01: var(--u-color-core);
+    --u-color-core-02: -30;
+    --u-color-core-03: -60;
+    --u-color-core-04: -90;
+    --u-color-core-05: -120;
+    --u-color-core-06: -150;
+    --u-color-core-07: -180;
+    --u-color-core-08: -210;
+    --u-color-core-09: -240;
+    --u-color-core-10: -270;
+    --u-color-core-11: -300;
+    --u-color-core-12: -330;
+    
+    /* Custom Factors */
+    --u-color-tint-scale: 1.25;
+    --u-color-shade-scale: 1.25;
+    --u-color-chroma-shift: 1;
+    --u-color-chroma-neutral: 0.025;
+
+    --u-color-tint-04: calc(pow(var(--u-color-tint-scale), 9));
+    --u-color-tint-03: calc(pow(var(--u-color-tint-scale), 6));
+    --u-color-tint-02: calc(pow(var(--u-color-tint-scale), 3));
+    --u-color-tint-01: calc(pow(var(--u-color-tint-scale), 2));
+    --u-color-shade-01: calc(pow(var(--u-color-shade-scale), -2));
+    --u-color-shade-02: calc(pow(var(--u-color-shade-scale), -3));
+    --u-color-shade-03: calc(pow(var(--u-color-shade-scale), -6));
+    --u-color-shade-04: calc(pow(var(--u-color-shade-scale), -9));
+
+    --u-chroma-shift-100: calc(c * (var(--u-color-chroma-shift)) - .175);
+    --u-chroma-shift-200: calc(c * (var(--u-color-chroma-shift)) - .1);
+    --u-chroma-shift-300: calc(c * (var(--u-color-chroma-shift)) - 0);
+    --u-chroma-shift-400: calc(c * (var(--u-color-chroma-shift)) - 0);
+    --u-chroma-shift-500: calc(c * (var(--u-color-chroma-shift)));
+    --u-chroma-shift-600: calc(c * (var(--u-color-chroma-shift)) - 0);
+    --u-chroma-shift-700: calc(c * (var(--u-color-chroma-shift)) - 0);
+    --u-chroma-shift-800: calc(c * (var(--u-color-chroma-shift)) - 0);
+    --u-chroma-shift-900: calc(c * (var(--u-color-chroma-shift)) - 0);
+
+    /* Neutral Colors */
+    --u-color-core-00-100: oklch(from var(--u-color-core-01) calc(l * pow(var(--u-color-tint-scale), 4)) calc(c * (var(--u-color-chroma-neutral))) h / 1);
+    --u-color-core-00-200: oklch(from var(--u-color-core-01) calc(l * pow(var(--u-color-tint-scale), 3)) calc(c * (var(--u-color-chroma-neutral))) h / 1);
+    --u-color-core-00-300: oklch(from var(--u-color-core-01) calc(l * pow(var(--u-color-tint-scale), 2)) calc(c * (var(--u-color-chroma-neutral))) h / 1);
+    --u-color-core-00-400: oklch(from var(--u-color-core-01) calc(l * pow(var(--u-color-tint-scale), 1)) calc(c * (var(--u-color-chroma-neutral))) h / 1);
+    --u-color-core-00-500: oklch(from var(--u-color-core-01) calc(l * pow(1, 0)) calc(c * (var(--u-color-chroma-neutral))) h / 1);
+    --u-color-core-00-600: oklch(from var(--u-color-core-01) calc(l * pow(var(--u-color-shade-scale), -1)) calc(c * (var(--u-color-chroma-neutral))) h / 1);
+    --u-color-core-00-700: oklch(from var(--u-color-core-01) calc(l * pow(var(--u-color-shade-scale), -2)) calc(c * (var(--u-color-chroma-neutral))) h / 1);
+    --u-color-core-00-800: oklch(from var(--u-color-core-01) calc(l * pow(var(--u-color-shade-scale), -3)) calc(c * (var(--u-color-chroma-neutral))) h / 1);
+    --u-color-core-00-900: oklch(from var(--u-color-core-01) calc(l * pow(var(--u-color-shade-scale), -4)) calc(c * (var(--u-color-chroma-neutral))) h / 1);
+
+    /* 01 Colors */
+    --u-color-core-01-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) h / 1);
+    --u-color-core-01-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) h / 1);
+    --u-color-core-01-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) h / 1);
+    --u-color-core-01-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) h / 1);
+    --u-color-core-01-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) h / 1);
+    --u-color-core-01-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) h / 1);
+    --u-color-core-01-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) h / 1);
+    --u-color-core-01-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) h / 1);
+    --u-color-core-01-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) h / 1);
+
+    /* 02 Colors */
+    --u-color-core-02-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-02)) / 1);
+    --u-color-core-02-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-02)) / 1);
+    --u-color-core-02-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-02)) / 1);
+    --u-color-core-02-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-02)) / 1);
+    --u-color-core-02-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-02)) / 1);
+    --u-color-core-02-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-02)) / 1);
+    --u-color-core-02-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-02)) / 1);
+    --u-color-core-02-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-02)) / 1);
+    --u-color-core-02-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-02)) / 1);
+
+    /* 03 Colors */
+    --u-color-core-03-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-03)) / 1);
+    --u-color-core-03-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-03)) / 1);
+    --u-color-core-03-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-03)) / 1);
+    --u-color-core-03-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-03)) / 1);
+    --u-color-core-03-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-03)) / 1);
+    --u-color-core-03-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-03)) / 1);
+    --u-color-core-03-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-03)) / 1);
+    --u-color-core-03-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-03)) / 1);
+    --u-color-core-03-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-03)) / 1);
+
+    /* 04 Colors */
+    --u-color-core-04-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-04)) / 1);
+    --u-color-core-04-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-04)) / 1);
+    --u-color-core-04-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-04)) / 1);
+    --u-color-core-04-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-04)) / 1);
+    --u-color-core-04-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-04)) / 1);
+    --u-color-core-04-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-04)) / 1);
+    --u-color-core-04-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-04)) / 1);
+    --u-color-core-04-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-04)) / 1);
+    --u-color-core-04-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-04)) / 1);
+
+    /* 05 Colors */
+    --u-color-core-05-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-05)) / 1);
+    --u-color-core-05-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-05)) / 1);
+    --u-color-core-05-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-05)) / 1);
+    --u-color-core-05-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-05)) / 1);
+    --u-color-core-05-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-05)) / 1);
+    --u-color-core-05-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-05)) / 1);
+    --u-color-core-05-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-05)) / 1);
+    --u-color-core-05-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-05)) / 1);
+    --u-color-core-05-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-05)) / 1);
+
+    /* 06 Colors */
+    --u-color-core-06-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-06)) / 1);
+    --u-color-core-06-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-06)) / 1);
+    --u-color-core-06-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-06)) / 1);
+    --u-color-core-06-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-06)) / 1);
+    --u-color-core-06-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-06)) / 1);
+    --u-color-core-06-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-06)) / 1);
+    --u-color-core-06-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-06)) / 1);
+    --u-color-core-06-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-06)) / 1);
+    --u-color-core-06-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-06)) / 1);
+
+    /* 07 Colors */
+    --u-color-core-07-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-07)) / 1);
+    --u-color-core-07-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-07)) / 1);
+    --u-color-core-07-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-07)) / 1);
+    --u-color-core-07-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-07)) / 1);
+    --u-color-core-07-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-07)) / 1);
+    --u-color-core-07-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-07)) / 1);
+    --u-color-core-07-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-07)) / 1);
+    --u-color-core-07-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-07)) / 1);
+    --u-color-core-07-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-07)) / 1);
+
+    /* 08 Colors */
+    --u-color-core-08-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-08)) / 1);
+    --u-color-core-08-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-08)) / 1);
+    --u-color-core-08-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-08)) / 1);
+    --u-color-core-08-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-08)) / 1);
+    --u-color-core-08-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-08)) / 1);
+    --u-color-core-08-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-08)) / 1);
+    --u-color-core-08-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-08)) / 1);
+    --u-color-core-08-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-08)) / 1);
+    --u-color-core-08-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-08)) / 1);
+
+    /* 09 Colors */
+    --u-color-core-09-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-09)) / 1);
+    --u-color-core-09-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-09)) / 1);
+    --u-color-core-09-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-09)) / 1);
+    --u-color-core-09-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-09)) / 1);
+    --u-color-core-09-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-09)) / 1);
+    --u-color-core-09-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-09)) / 1);
+    --u-color-core-09-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-09)) / 1);
+    --u-color-core-09-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-09)) / 1);
+    --u-color-core-09-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-09)) / 1);
+
+    /* 10 Colors */
+    --u-color-core-10-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-10)) / 1);
+    --u-color-core-10-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-10)) / 1);
+    --u-color-core-10-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-10)) / 1);
+    --u-color-core-10-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-10)) / 1);
+    --u-color-core-10-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-10)) / 1);
+    --u-color-core-10-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-10)) / 1);
+    --u-color-core-10-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-10)) / 1);
+    --u-color-core-10-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-10)) / 1);
+    --u-color-core-10-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-10)) / 1);
+
+    /* 11 Colors */
+    --u-color-core-11-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-11)) / 1);
+    --u-color-core-11-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-11)) / 1);
+    --u-color-core-11-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-11)) / 1);
+    --u-color-core-11-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-11)) / 1);
+    --u-color-core-11-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-11)) / 1);
+    --u-color-core-11-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-11)) / 1);
+    --u-color-core-11-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-11)) / 1);
+    --u-color-core-11-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-11)) / 1);
+    --u-color-core-11-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-11)) / 1);
+
+    /* 12 Colors */
+    --u-color-core-12-100: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-04)) var(--u-chroma-shift-100) calc(h + var(--u-color-core-12)) / 1);
+    --u-color-core-12-200: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-03)) var(--u-chroma-shift-200) calc(h + var(--u-color-core-12)) / 1);
+    --u-color-core-12-300: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-02)) var(--u-chroma-shift-300) calc(h + var(--u-color-core-12)) / 1);
+    --u-color-core-12-400: oklch(from var(--u-color-core-01) calc(l * var(--u-color-tint-01)) var(--u-chroma-shift-400) calc(h + var(--u-color-core-12)) / 1);
+    --u-color-core-12-500: oklch(from var(--u-color-core-01) l var(--u-chroma-shift-500) calc(h + var(--u-color-core-12)) / 1);
+    --u-color-core-12-600: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-01)) var(--u-chroma-shift-600) calc(h + var(--u-color-core-12)) / 1);
+    --u-color-core-12-700: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-02)) var(--u-chroma-shift-700) calc(h + var(--u-color-core-12)) / 1);
+    --u-color-core-12-800: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-03)) var(--u-chroma-shift-800) calc(h + var(--u-color-core-12)) / 1);
+    --u-color-core-12-900: oklch(from var(--u-color-core-01) calc(l * var(--u-color-shade-04)) var(--u-chroma-shift-900) calc(h + var(--u-color-core-12)) / 1);
+
+}

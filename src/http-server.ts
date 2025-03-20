@@ -11,6 +11,9 @@ dotenv.config();
 // Import our MCP server setup function (without transport)
 import { createMcpServer } from './mcp-server.js';
 
+// Import database functions
+import { getTalentById, getAllTalents, getDefaultTalentId } from './db/index.js';
+
 const PORT = process.env.SERVER_PORT || 3000;
 const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
 
@@ -63,7 +66,7 @@ async function startHttpServer() {
       // When the client disconnects, remove the transport
       req.on('close', () => {
         clients.delete(clientId);
-        transport.disconnect();
+        // SSE transport doesn't have disconnect method, it will close when response ends
       });
     });
     
@@ -79,11 +82,161 @@ async function startHttpServer() {
       await transport.handlePostMessage(req, res);
     });
     
+    // Add REST API endpoints for talent resources
+    
+    // Get all talents
+    app.get('/api/talents', async (req, res) => {
+      try {
+        const talents = await getAllTalents();
+        res.status(200).json(talents);
+      } catch (error) {
+        console.error('Error fetching talents:', error);
+        res.status(500).json({ error: 'Failed to fetch talents' });
+      }
+    });
+    
+    // Get default talent (Olivia Gray)
+    app.get('/api/talents/default', async (req, res) => {
+      try {
+        const defaultId = await getDefaultTalentId();
+        const talent = await getTalentById(defaultId);
+        
+        if (!talent) {
+          return res.status(404).json({ error: `Default talent not found` });
+        }
+        
+        res.status(200).json(talent);
+      } catch (error) {
+        console.error('Error fetching default talent:', error);
+        res.status(500).json({ error: 'Failed to fetch default talent' });
+      }
+    });
+    
+    // Get talent by ID
+    app.get('/api/talents/:id', async (req, res) => {
+      try {
+        const { id } = req.params;
+        const talent = await getTalentById(id);
+        
+        if (!talent) {
+          return res.status(404).json({ error: `Talent with ID ${id} not found` });
+        }
+        
+        res.status(200).json(talent);
+      } catch (error) {
+        console.error(`Error fetching talent ${req.params.id}:`, error);
+        res.status(500).json({ error: `Failed to fetch talent with ID ${req.params.id}` });
+      }
+    });
+    
+    // Generate CSS for a component
+    app.get('/api/css/:talentId/:component', async (req, res) => {
+      try {
+        const talentId = req.params.talentId;
+        const component = req.params.component;
+        const state = req.query.state as string || 'default';
+        
+        // Get talent
+        let talent;
+        if (talentId === 'default') {
+          const defaultId = await getDefaultTalentId();
+          talent = await getTalentById(defaultId);
+        } else {
+          talent = await getTalentById(talentId);
+        }
+        
+        if (!talent) {
+          return res.status(404).json({ error: `Talent with ID ${talentId} not found` });
+        }
+        
+        // Check if talent has design_profile
+        if (!talent.design_profile) {
+          return res.status(400).json({ error: `Talent with ID ${talentId} does not have a design_profile` });
+        }
+        
+        // Check if component is valid
+        const validComponents = ['button', 'card', 'input', 'navbar', 'modal', 'table'];
+        if (!validComponents.includes(component)) {
+          return res.status(400).json({ error: `Invalid component: ${component}` });
+        }
+        
+        // Check if state is valid
+        const validStates = ['default', 'hover', 'active', 'disabled', 'focus'];
+        if (state && !validStates.includes(state)) {
+          return res.status(400).json({ error: `Invalid state: ${state}` });
+        }
+        
+        // Parse custom properties from query parameters
+        const customProps: Record<string, string | number> = {};
+        for (const [key, value] of Object.entries(req.query)) {
+          if (key !== 'state' && typeof value === 'string') {
+            // Try to convert to number if possible
+            customProps[key] = isNaN(Number(value)) ? value : Number(value);
+          }
+        }
+        
+        // Import the CSS generator directly
+        const cssGenerator = await import('./utils/css-generator.js');
+        
+        // Generate CSS
+        const css = cssGenerator.default.generateComponentCss(talent, {
+          component: component as any,
+          state: state as any,
+          customProperties: customProps
+        });
+        
+        res.setHeader('Content-Type', 'text/css');
+        res.status(200).send(css);
+      } catch (error) {
+        console.error('Error generating CSS:', error);
+        res.status(500).json({ error: `Failed to generate CSS: ${error instanceof Error ? error.message : String(error)}` });
+      }
+    });
+    
+    // Add endpoint for generating complete component library CSS
+    app.get('/api/component-library/:talentId', async (req, res) => {
+      try {
+        const talentId = req.params.talentId;
+        
+        // Get talent
+        let talent;
+        if (talentId === 'default') {
+          const defaultId = await getDefaultTalentId();
+          talent = await getTalentById(defaultId);
+        } else {
+          talent = await getTalentById(talentId);
+        }
+        
+        if (!talent) {
+          return res.status(404).json({ error: `Talent with ID ${talentId} not found` });
+        }
+        
+        // Check if talent has design_profile
+        if (!talent.design_profile) {
+          return res.status(400).json({ error: `Talent with ID ${talentId} does not have a design_profile` });
+        }
+        
+        // Import the CSS generator directly
+        const cssGenerator = await import('./utils/css-generator.js');
+        
+        // Generate component library CSS
+        const css = cssGenerator.default.generateComponentLibraryCss(talent);
+        
+        res.setHeader('Content-Type', 'text/css');
+        res.status(200).send(css);
+      } catch (error) {
+        console.error('Error generating component library CSS:', error);
+        res.status(500).json({ error: `Failed to generate component library CSS: ${error instanceof Error ? error.message : String(error)}` });
+      }
+    });
+    
     // Create HTTP server and start listening
     const server = createServer(app);
     
     server.listen(PORT, () => {
       console.log(`Popmelt MCP Server listening on port ${PORT}`);
+      console.log(`REST API available at http://localhost:${PORT}/api`);
+      console.log(`Default talent available at http://localhost:${PORT}/api/talents/default`);
     });
     
     // Handle server shutdown
@@ -91,8 +244,10 @@ async function startHttpServer() {
       console.log('Shutting down...');
       
       // Close all client connections
-      for (const transport of clients.values()) {
-        transport.disconnect();
+      for (const [clientId, transport] of clients.entries()) {
+        // SSE transport doesn't have a disconnect method
+        // We'll remove it from our map and let connections terminate naturally
+        clients.delete(clientId);
       }
       
       // Close server
@@ -100,12 +255,6 @@ async function startHttpServer() {
         console.log('Server closed');
         process.exit(0);
       });
-      
-      // Force exit after timeout
-      setTimeout(() => {
-        console.error('Forced shutdown after timeout');
-        process.exit(1);
-      }, 10000);
     };
     
     // Listen for termination signals
@@ -113,14 +262,12 @@ async function startHttpServer() {
     process.on('SIGINT', gracefulShutdown);
     
   } catch (error) {
-    console.error('Failed to start HTTP server:', error);
+    console.error('Error starting server:', error);
     process.exit(1);
   }
 }
 
 // Start the server
-if (require.main === module) {
-  startHttpServer();
-}
+startHttpServer();
 
-export { startHttpServer }; 
+export default startHttpServer; 

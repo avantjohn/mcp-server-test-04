@@ -1,4 +1,4 @@
-import { TalentProfile, ColorPalette, Typography, DesignAttributes } from '../db/index.js';
+import { TalentProfile, ColorPalette, Typography, DesignAttributes, DesignSystem, DesignProfile, TypographySettings } from '../db/index.js';
 
 type ComponentType = 'button' | 'card' | 'input' | 'navbar' | 'modal' | 'table';
 type ComponentState = 'default' | 'hover' | 'active' | 'disabled' | 'focus';
@@ -18,15 +18,16 @@ export function generateComponentCss(
   options: CssGenerationOptions
 ): string {
   const { component, state = 'default', customProperties = {} } = options;
-  const { metadata } = talent;
+  const { design_profile } = talent;
   
-  // Extract properties from talent profile
+  // Extract properties from talent design profile
   const { 
     aesthetic_characteristics,
     design_attributes,
     color_palette,
-    typography
-  } = metadata;
+    typography,
+    design_system
+  } = design_profile;
   
   // Start building the CSS
   let css = '';
@@ -35,20 +36,26 @@ export function generateComponentCss(
   const selector = getComponentSelector(component, state);
   css += `${selector} {\n`;
   
-  // Add base styling
-  css += generateBaseStyles(component, aesthetic_characteristics.style);
-  
-  // Add colors
-  css += generateColorStyles(component, state, color_palette);
-  
-  // Add typography
-  css += generateTypographyStyles(component, typography);
-  
-  // Add spacing and layout based on design attributes
-  css += generateSpacingStyles(component, design_attributes);
-  
-  // Add effects (shadows, borders) based on design attributes
-  css += generateEffectStyles(component, state, design_attributes);
+  // If design_system is available, use it for enhanced styling
+  if (design_system && design_system.components[component]) {
+    css += generateStyledComponentCss(component, state, design_system, customProperties);
+  } else {
+    // Fallback to the basic styling logic
+    // Add base styling
+    css += generateBaseStyles(component, aesthetic_characteristics.style);
+    
+    // Add colors
+    css += generateColorStyles(component, state, color_palette);
+    
+    // Add typography
+    css += generateTypographyStyles(component, typography);
+    
+    // Add spacing and layout based on design attributes
+    css += generateSpacingStyles(component, design_attributes);
+    
+    // Add effects (shadows, borders) based on design attributes
+    css += generateEffectStyles(component, state, design_attributes);
+  }
   
   // Add custom properties
   for (const [property, value] of Object.entries(customProperties)) {
@@ -60,7 +67,11 @@ export function generateComponentCss(
   
   // Add hover state if needed and not already specified
   if (state !== 'hover' && component !== 'table') {
-    css += generateHoverStyles(component, color_palette, design_attributes);
+    if (design_system) {
+      css += generateDesignSystemHoverStyles(component, design_system);
+    } else {
+      css += generateHoverStyles(component, color_palette, design_attributes);
+    }
   }
   
   return css;
@@ -78,33 +89,148 @@ export function generateComponentLibraryCss(talent: TalentProfile): string {
   
   // Generate CSS for common variables
   css += `:root {\n`;
-  const { color_palette, typography } = talent.metadata;
+  const { color_palette, typography, design_system } = talent.design_profile;
   
-  // Color variables
-  css += `  /* Colors */\n`;
-  css += `  --color-primary: ${color_palette.primary};\n`;
-  css += `  --color-secondary: ${color_palette.secondary};\n`;
-  css += `  --color-accent: ${color_palette.accent};\n`;
-  css += `  --color-background: ${color_palette.background};\n`;
-  css += `  --color-text: ${color_palette.text};\n\n`;
+  if (design_system) {
+    // Enhanced color variables using the design system
+    css += `  /* Core Color */\n`;
+    css += `  --u-color-core: ${design_system.colors.base.core};\n`;
+    css += `  --u-color-neutral: ${design_system.colors.base.neutral};\n`;
+    css += `  --u-color-tint-scale: ${design_system.colors.scales.tint};\n`;
+    css += `  --u-color-shade-scale: ${design_system.colors.scales.shade};\n`;
+    css += `  --u-color-chroma-scale: ${design_system.colors.scales.chroma};\n\n`;
+    
+    // Neutral palette variables
+    css += `  /* Neutral Palette */\n`;
+    for (const [shade, value] of Object.entries(design_system.colors.palette.neutral)) {
+      css += `  --color-neutral-${shade}: ${value};\n`;
+    }
+    css += `\n`;
+    
+    // Primary palette variables
+    css += `  /* Primary Palette */\n`;
+    for (const [shade, value] of Object.entries(design_system.colors.palette.primary)) {
+      css += `  --color-primary-${shade}: ${value};\n`;
+    }
+    css += `\n`;
+    
+    // Semantic color variables
+    css += `  /* Semantic Colors */\n`;
+    // Background
+    for (const [key, value] of Object.entries(design_system.colors.semantic.background)) {
+      css += `  --color-background-${key}: ${value};\n`;
+    }
+    // Text
+    for (const [key, value] of Object.entries(design_system.colors.semantic.text)) {
+      css += `  --color-text-${key}: ${value};\n`;
+    }
+    // Brand
+    for (const [key, value] of Object.entries(design_system.colors.semantic.brand)) {
+      css += `  --color-brand-${key}: ${value};\n`;
+    }
+    // UI
+    for (const [key, value] of Object.entries(design_system.colors.semantic.ui)) {
+      css += `  --color-ui-${key}: ${value};\n`;
+    }
+    css += `\n`;
+    
+    // Typography variables
+    css += `  /* Typography */\n`;
+    css += `  --font-heading: ${typography.heading.font};\n`;
+    css += `  --font-body: ${typography.body.font};\n`;
+    css += `  --font-weight-heading: ${typography.heading.weight};\n`;
+    css += `  --font-weight-body: ${typography.body.weight};\n`;
+    css += `  --letter-spacing-heading: ${typography.heading.letterSpacing};\n`;
+    css += `  --letter-spacing-body: ${typography.body.letterSpacing};\n`;
+    css += `  --line-height-heading: ${typography.heading.lineHeight};\n`;
+    css += `  --line-height-body: ${typography.body.lineHeight};\n`;
+    css += `  --font-size-base: ${typography.scale.base};\n`;
+    css += `  --font-size-ratio: ${typography.scale.ratio};\n`;
+    css += `  --font-size-h1: ${typography.scale.h1};\n`;
+    css += `  --font-size-h2: ${typography.scale.h2};\n`;
+    css += `  --font-size-h3: ${typography.scale.h3};\n`;
+    css += `  --font-size-h4: ${typography.scale.h4};\n`;
+    css += `  --font-size-h5: ${typography.scale.h5};\n`;
+    css += `  --font-size-small: ${typography.scale.small};\n`;
+    css += `\n`;
+    
+    // Spacing variables
+    css += `  /* Spacing */\n`;
+    css += `  --spacing-base: ${design_system.spacing.base};\n`;
+    for (const [key, value] of Object.entries(design_system.spacing.scale)) {
+      css += `  --spacing-${key}: ${value};\n`;
+    }
+    css += `\n`;
+    
+    // Border variables
+    css += `  /* Borders */\n`;
+    for (const [key, value] of Object.entries(design_system.borders.radius)) {
+      css += `  --radius-${key}: ${value};\n`;
+    }
+    for (const [key, value] of Object.entries(design_system.borders.width)) {
+      css += `  --border-${key}: ${value};\n`;
+    }
+    css += `\n`;
+    
+    // Shadow variables
+    css += `  /* Shadows */\n`;
+    for (const [key, value] of Object.entries(design_system.shadows)) {
+      css += `  --shadow-${key}: ${value};\n`;
+    }
+    css += `\n`;
+    
+    // Transition variables
+    css += `  /* Transitions */\n`;
+    for (const [key, value] of Object.entries(design_system.transitions)) {
+      css += `  --transition-${key}: ${value};\n`;
+    }
+  } else {
+    // Basic color variables (fallback)
+    css += `  /* Colors */\n`;
+    css += `  --color-primary: ${color_palette.primary};\n`;
+    css += `  --color-secondary: ${color_palette.secondary};\n`;
+    css += `  --color-accent: ${color_palette.accent};\n`;
+    css += `  --color-background: ${color_palette.background};\n`;
+    css += `  --color-text: ${color_palette.text};\n\n`;
+    
+    // Basic typography variables (fallback)
+    css += `  /* Typography */\n`;
+    css += `  --font-heading: ${typography.heading.font};\n`;
+    css += `  --font-body: ${typography.body.font};\n`;
+    css += `  --font-weight-heading: ${typography.heading.weight};\n`;
+    css += `  --font-weight-body: ${typography.body.weight};\n`;
+    css += `  --letter-spacing-heading: ${typography.heading.letterSpacing};\n`;
+    css += `  --letter-spacing-body: ${typography.body.letterSpacing};\n`;
+    css += `  --line-height-heading: ${typography.heading.lineHeight};\n`;
+    css += `  --line-height-body: ${typography.body.lineHeight};\n`;
+    css += `  --font-size-base: ${typography.scale.base};\n`;
+    css += `  --font-size-ratio: ${typography.scale.ratio};\n`;
+  }
   
-  // Typography variables
-  css += `  /* Typography */\n`;
-  css += `  --font-heading: ${typography.headingFont};\n`;
-  css += `  --font-body: ${typography.bodyFont};\n`;
-  css += `  --font-scale: ${typography.scale};\n`;
-  css += `  --font-weight: ${typography.weight};\n`;
-  css += `  --letter-spacing: ${typography.letterSpacing}rem;\n`;
-  css += `  --line-height: ${typography.lineHeight};\n`;
   css += `}\n\n`;
   
-  // Generate CSS for each component and state
+  // Generate CSS for each component
   for (const component of components) {
-    css += `/* ${component.toUpperCase()} */\n`;
-    for (const state of states) {
+    css += `/* ${capitalizeFirstLetter(component)} Component */\n`;
+    
+    // Generate base styles
+    css += generateComponentCss(talent, { component });
+    
+    // Generate state variations
+    for (const state of states.filter(s => s !== 'default')) {
       css += generateComponentCss(talent, { component, state });
-      css += '\n';
     }
+    
+    // Generate variants if design system is available
+    if (design_system && design_system.components[component] && 'variants' in design_system.components[component]) {
+      const variants = design_system.components[component].variants || {};
+      
+      for (const [variant, _] of Object.entries(variants)) {
+        css += generateComponentCss(talent, { component, variant });
+      }
+    }
+    
+    css += '\n';
   }
   
   return css;
@@ -255,16 +381,21 @@ function generateTypographyStyles(
   typography: Typography
 ): string {
   let css = '';
-  const { headingFont, bodyFont, scale, weight, letterSpacing, lineHeight } = typography;
+  const { heading, body, scale } = typography;
   
-  const font = component === 'navbar' ? headingFont : bodyFont;
+  const typographySettings = component === 'navbar' ? heading : body;
+  const font = typographySettings.font;
+  const weight = typographySettings.weight;
+  const letterSpacing = typographySettings.letterSpacing;
+  const lineHeight = typographySettings.lineHeight;
+  
   css += `  font-family: ${font};\n`;
   
   // Different font sizes based on component
   switch (component) {
     case 'button':
-      css += `  font-size: ${scale * 0.875}rem;\n`;
-      css += `  font-weight: ${weight === 'bold' ? 700 : 500};\n`;
+      css += `  font-size: ${scale.small};\n`;
+      css += `  font-weight: ${weight};\n`;
       break;
       
     case 'card':
@@ -272,12 +403,12 @@ function generateTypographyStyles(
       break;
       
     case 'input':
-      css += `  font-size: ${scale}rem;\n`;
+      css += `  font-size: ${scale.base};\n`;
       break;
       
     case 'navbar':
-      css += `  font-size: ${scale * 1}rem;\n`;
-      css += `  font-weight: ${weight === 'bold' ? 700 : 500};\n`;
+      css += `  font-size: ${scale.h5};\n`;
+      css += `  font-weight: ${weight};\n`;
       break;
       
     case 'modal':
@@ -285,11 +416,11 @@ function generateTypographyStyles(
       break;
       
     case 'table':
-      css += `  font-size: ${scale * 0.875}rem;\n`;
+      css += `  font-size: ${scale.small};\n`;
       break;
   }
   
-  css += `  letter-spacing: ${letterSpacing}rem;\n`;
+  css += `  letter-spacing: ${letterSpacing};\n`;
   css += `  line-height: ${lineHeight};\n`;
   
   return css;
@@ -439,6 +570,233 @@ function generateHoverStyles(
   
   css += '}\n';
   return css;
+}
+
+/**
+ * Generate component styles based on design system
+ */
+function generateStyledComponentCss(
+  component: ComponentType,
+  state: ComponentState,
+  designSystem: DesignSystem,
+  customProperties: Record<string, string | number> = {}
+): string {
+  let css = '';
+  
+  // Add standard component properties
+  if (state === 'default') {
+    // Add box-sizing property
+    css += `  box-sizing: border-box;\n`;
+    
+    // Apply component-specific styles based on the component type
+    switch (component) {
+      case 'button': {
+        const buttonComponent = designSystem.components.button;
+        // Add base properties
+        for (const [property, value] of Object.entries(buttonComponent.base)) {
+          css += `  ${property}: ${value};\n`;
+        }
+        
+        // Add medium size properties by default
+        for (const [property, value] of Object.entries(buttonComponent.sizes.md)) {
+          css += `  ${property}: ${value};\n`;
+        }
+        
+        // Add primary variant properties by default
+        for (const [property, value] of Object.entries(buttonComponent.variants.primary)) {
+          css += `  ${property}: ${value};\n`;
+        }
+        break;
+      }
+        
+      case 'card': {
+        const cardComponent = designSystem.components.card;
+        // Add base properties
+        for (const [property, value] of Object.entries(cardComponent.base)) {
+          css += `  ${property}: ${value};\n`;
+        }
+        
+        // Add medium padding by default
+        css += `  padding: ${cardComponent.padding.md};\n`;
+        break;
+      }
+        
+      case 'input': {
+        const inputComponent = designSystem.components.input;
+        // Add base properties
+        for (const [property, value] of Object.entries(inputComponent.base)) {
+          css += `  ${property}: ${value};\n`;
+        }
+        
+        // Add medium size properties by default
+        for (const [property, value] of Object.entries(inputComponent.sizes.md)) {
+          css += `  ${property}: ${value};\n`;
+        }
+        break;
+      }
+        
+      case 'navbar': {
+        const navbarComponent = designSystem.components.navbar;
+        // Add base properties
+        for (const [property, value] of Object.entries(navbarComponent.base)) {
+          css += `  ${property}: ${value};\n`;
+        }
+        break;
+      }
+        
+      case 'modal': {
+        const modalComponent = designSystem.components.modal;
+        // For modal, we need to apply properties from content section
+        for (const [property, value] of Object.entries(modalComponent.content)) {
+          css += `  ${property}: ${value};\n`;
+        }
+        
+        // Add body padding
+        css += `  padding: ${modalComponent.body.padding};\n`;
+        break;
+      }
+        
+      case 'table': {
+        const tableComponent = designSystem.components.table;
+        // Add base properties
+        for (const [property, value] of Object.entries(tableComponent.base)) {
+          css += `  ${property}: ${value};\n`;
+        }
+        break;
+      }
+    }
+  } else if (state === 'hover') {
+    // Add hover state styles
+    switch (component) {
+      case 'button': {
+        const buttonComponent = designSystem.components.button;
+        css += `  background-color: ${buttonComponent.variants.primary.hoverBackground};\n`;
+        break;
+      }
+        
+      case 'input': {
+        const inputComponent = designSystem.components.input;
+        if (inputComponent.states && inputComponent.states.hover) {
+          for (const [property, value] of Object.entries(inputComponent.states.hover)) {
+            css += `  ${property}: ${value};\n`;
+          }
+        }
+        break;
+      }
+        
+      case 'card': {
+        const cardComponent = designSystem.components.card;
+        if (cardComponent.variants && cardComponent.variants.elevated) {
+          css += `  box-shadow: var(--shadow-md);\n`;
+        }
+        break;
+      }
+    }
+  } else if (state === 'active') {
+    // Add active state styles
+    switch (component) {
+      case 'button':
+        css += `  transform: scale(0.98);\n`;
+        break;
+    }
+  } else if (state === 'disabled') {
+    // Add disabled state styles
+    switch (component) {
+      case 'button':
+        css += `  opacity: 0.6;\n`;
+        css += `  cursor: not-allowed;\n`;
+        break;
+        
+      case 'input': {
+        const inputComponent = designSystem.components.input;
+        if (inputComponent.states && inputComponent.states.disabled) {
+          for (const [property, value] of Object.entries(inputComponent.states.disabled)) {
+            css += `  ${property}: ${value};\n`;
+          }
+        }
+        break;
+      }
+    }
+  } else if (state === 'focus') {
+    // Add focus state styles
+    switch (component) {
+      case 'input': {
+        const inputComponent = designSystem.components.input;
+        if (inputComponent.states && inputComponent.states.focus) {
+          for (const [property, value] of Object.entries(inputComponent.states.focus)) {
+            css += `  ${property}: ${value};\n`;
+          }
+        }
+        break;
+      }
+        
+      case 'button': {
+        const buttonComponent = designSystem.components.button;
+        if (buttonComponent.variants && buttonComponent.variants.primary && buttonComponent.variants.primary.focusRing) {
+          css += `  outline: ${buttonComponent.variants.primary.focusRing};\n`;
+          css += `  outline-offset: 2px;\n`;
+        }
+        break;
+      }
+    }
+  }
+  
+  return css;
+}
+
+/**
+ * Generate hover styles based on design system
+ */
+function generateDesignSystemHoverStyles(
+  component: ComponentType,
+  designSystem: DesignSystem
+): string {
+  if (component === 'table') {
+    return '';
+  }
+  
+  const selector = getComponentSelector(component, 'hover');
+  let css = `${selector} {\n`;
+  
+  switch (component) {
+    case 'button': {
+      const buttonComponent = designSystem.components.button;
+      if (buttonComponent.variants.primary && buttonComponent.variants.primary.hoverBackground) {
+        css += `  background-color: ${buttonComponent.variants.primary.hoverBackground};\n`;
+      } else {
+        css += `  filter: brightness(0.9);\n`;
+      }
+      break;
+    }
+      
+    case 'card': {
+      const cardComponent = designSystem.components.card;
+      if (cardComponent.base.boxShadow) {
+        css += `  box-shadow: var(--shadow-md);\n`;
+      }
+      break;
+    }
+      
+    case 'input': {
+      const inputComponent = designSystem.components.input;
+      if (inputComponent.states && inputComponent.states.hover && inputComponent.states.hover.border) {
+        css += `  border: ${inputComponent.states.hover.border};\n`;
+      } else {
+        css += `  border-color: var(--color-primary-400);\n`;
+      }
+      break;
+    }
+  }
+  
+  css += '}\n';
+  return css;
+}
+
+/**
+ * Utility function to capitalize the first letter of a string
+ */
+function capitalizeFirstLetter(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 export default {

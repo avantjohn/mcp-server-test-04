@@ -1,0 +1,15 @@
+.button {
+  box-sizing: border-box;
+  fontWeight: 500;
+  borderRadius: var(--radius-md);
+  transition: var(--transition-default);
+  padding: var(--spacing-xs) var(--spacing-md);
+  fontSize: 1rem;
+  background: var(--color-brand-primary);
+  color: var(--color-text-inverted);
+  hoverBackground: var(--color-brand-secondary);
+  focusRing: 2px solid var(--color-ui-focus);
+}
+.button:hover {
+  background-color: var(--color-brand-secondary);
+}

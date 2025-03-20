@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+      "popmelt": {
+        "command": "node",
+        "args": [
+          "/Users/johnnyjones/Documents/_resources-2025/popmelt/test-code/mcp-server-test-04/dist/server.js"
+        ]
+      }
+    }
+  }
+  
